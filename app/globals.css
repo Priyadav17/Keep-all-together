@@ -1,0 +1,245 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.98 0.015 230); /* off-white ice */
+  --foreground: oklch(0.15 0.02 250); /* ink with a subtle cool hue */
+  --card: oklch(0.99 0.008 230); /* slightly lifted off-white */
+  --card-foreground: var(--foreground);
+
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.65 0.2 255); /* cool blue (~#2563EB) */
+  --primary-foreground: oklch(0.99 0 0); /* white */
+
+  --secondary: oklch(0.965 0.012 230); /* pale cool neutral */
+  --secondary-foreground: oklch(0.25 0.02 250); /* dark cool text */
+
+  --muted: oklch(0.96 0.01 230); /* soft cool neutral */
+  --muted-foreground: oklch(0.45 0.03 230); /* slate text */
+
+  --accent: oklch(0.87 0.08 230); /* light blue (~#93C5FD) */
+  --accent-foreground: oklch(0.22 0.03 250); /* near-black cool */
+
+  --destructive: oklch(0.577 0.245 27.325); /* unchanged */
+
+  --border: oklch(0.92 0.02 230); /* cool slate border */
+  --input: var(--border);
+  --ring: var(--primary);
+
+  /* charts (kept within cool spectrum) */
+  --chart-1: oklch(0.62 0.2 255);
+  --chart-2: oklch(0.72 0.1 230);
+  --chart-3: oklch(0.52 0.08 230);
+  --chart-4: oklch(0.8 0.06 240);
+  --chart-5: oklch(0.7 0.12 210);
+
+  --radius: 0.625rem;
+
+  /* sidebar aligns with light palette */
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  --font-press: "Press 2P", cursive;
+  --font-geist-sans: "Geist Sans", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.72 0.12 210); /* teal */
+  --primary-foreground: oklch(0.985 0 0); /* white */
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.75 0.18 80); /* amber */
+  --accent-foreground: oklch(0.145 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.72 0.12 210); /* teal */
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.75 0.18 80); /* amber */
+  --sidebar-accent-foreground: oklch(0.145 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-press: var(--font-press);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Light-mode only subtle shaded background using soft blue spots */
+  html:not(.dark) body {
+    background-image: radial-gradient(1200px 600px at -10% -10%, oklch(0.96 0.03 240 / 0.35), transparent 60%),
+      radial-gradient(900px 500px at 110% 20%, oklch(0.96 0.02 210 / 0.28), transparent 60%);
+    background-attachment: fixed;
+  }
+}
+
+.card {
+  border-radius: 0.625rem; /* matches --radius */
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--card-foreground);
+}
+
+.soft-shadow {
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.08);
+}
+
+.tile {
+  border-radius: 0.625rem;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--card-foreground);
+  transition: box-shadow 0.3s ease;
+}
+
+.tile:hover {
+  box-shadow: 0 12px 32px rgba(2, 6, 23, 0.16);
+}
+
+.envelope {
+  position: relative;
+  border-radius: 0.625rem;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: var(--card);
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.08);
+}
+
+.envelope-flap {
+  width: 100%;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid rgb(229, 231, 235); /* gray-200 */
+  margin: 0 auto 12px auto;
+}
+
+.dark .envelope-flap {
+  border-bottom-color: rgb(55, 65, 81); /* gray-700 */
+}
+
+.wax-seal {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: #f59e0b; /* accent amber */
+  border: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.heading-font {
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+:root[data-font="press"] .heading-font {
+  font-family: var(--font-press), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  @apply text-pretty;
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Themed watermark utilities (light mode only). Use low-opacity inline SVGs */
+.wm-letter {
+  background-image: url("data:image/svg+xml;utf8,<svg width='220' height='160' viewBox='0 0 220 160' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke='%2393C5FD' stroke-width='4' opacity='0.18'><rect x='24' y='32' rx='14' width='172' height='112'/><path d='M36 48l74 52 74-52' /></g></svg>");
+  background-repeat: no-repeat;
+  background-size: 180px auto;
+  background-position: right 12px bottom 12px;
+}
+.wm-gallery {
+  background-image: url("data:image/svg+xml;utf8,<svg width='220' height='160' viewBox='0 0 220 160' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke='%232563EB' stroke-width='4' opacity='0.16'><rect x='24' y='32' rx='14' width='172' height='112'/><circle cx='95' cy='80' r='14'/><path d='M60 124l34-34 28 26 22-24 18 16' /></g></svg>");
+  background-repeat: no-repeat;
+  background-size: 190px auto;
+  background-position: right 10px bottom 10px;
+}
+.wm-links {
+  background-image: url("data:image/svg+xml;utf8,<svg width='240' height='160' viewBox='0 0 240 160' xmlns='http://www.w3.org/2000/svg'><g fill='none' stroke='%2393C5FD' stroke-width='4' opacity='0.18'><path d='M80 90a28 28 0 0 1 40 0l10 10a28 28 0 0 1 0 40 28 28 0 0 1-40 0l-10-10' /><path d='M160 70a28 28 0 0 1-40 0l-10-10a28 28 0 0 1 0-40 28 28 0 0 1 40 0l10 10' /></g></svg>");
+  background-repeat: no-repeat;
+  background-size: 200px auto;
+  background-position: right 12px bottom 12px;
+}
+
+/* Hide watermarks in dark mode (keep the dark aesthetic clean with flowers + stars) */
+.dark .wm-letter,
+.dark .wm-gallery,
+.dark .wm-links {
+  background-image: none;
+}

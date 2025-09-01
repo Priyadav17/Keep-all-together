@@ -1,0 +1,8 @@
+/* Default: headings use sans */
+.heading-font {
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+/* When toggled: use Press 2P for headings */
+:root[data-font="press"] .heading-font {
+  font-family: var(--font-press), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
